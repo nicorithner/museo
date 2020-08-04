@@ -33,7 +33,7 @@ class Curator
   def photographs_taken_between(range)
     photographs_by_artist.map do |artist, photos| 
       photos.select {|photo| photo if range.include?(photo.year.to_i)} 
-    end.flatten.compact
+    end.flatten
 
   end
 end
