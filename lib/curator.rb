@@ -30,4 +30,10 @@ class Curator
     photographs_by_artist.map {|artist, photos| photos if artist.country == country }.flatten.compact
   end
 
+  def photographs_taken_between(range)
+    photographs_by_artist.map do |artist, photos| 
+      photos.select {|photo| photo if range.include?(photo.year.to_i)} 
+    end.flatten.compact
+
+  end
 end
