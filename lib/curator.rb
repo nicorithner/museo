@@ -34,6 +34,9 @@ class Curator
     photographs_by_artist.map do |artist, photos| 
       photos.select {|photo| photo if range.include?(photo.year.to_i)} 
     end.flatten
+  end
 
+  def find_artist_by_id(id)
+    @artists.find {|artist| artist.id == id }
   end
 end
