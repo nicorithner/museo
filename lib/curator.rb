@@ -26,4 +26,8 @@ class Curator
     photographs_by_artist.map {|artist, photos| artist.name if photos.count > 1 }.compact
   end
 
+  def photographs_taken_by_artist_from(country)
+    photographs_by_artist.map {|artist, photos| photos if artist.country == country }.flatten.compact
+  end
+
 end
